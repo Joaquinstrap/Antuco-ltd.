@@ -11,7 +11,6 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 
 # COMO CONECTAR HIBERNATE A LARAGON:
 
-# 🚀 Configuración de Hibernate con Laragon
 
 Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **Laragon**.
 
@@ -56,7 +55,7 @@ Asegúrate de tener el driver de MySQL y el núcleo de Hibernate en tu `pom.xml`
         <version>8.3.0</version>
     </dependency>
 </dependencies>
-
+```
 
 ## Paso 3: Archivo de Configuración (hibernate.cfg.xml)
 
