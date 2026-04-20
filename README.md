@@ -86,7 +86,7 @@ Crea este archivo en la carpeta src/main/resources. Aquí definimos las credenci
 ## Paso 4: Implementación en Java
 
 Para interactuar con la base de datos, seguimos este flujo básico de transacciones:
-```xml
+```java
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
