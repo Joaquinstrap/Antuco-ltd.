@@ -10,7 +10,7 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 
 
 # COMO CONECTAR HIBERNATE A LARAGON:
-
+## Qué Hice?
 
 Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **Laragon**.
 
