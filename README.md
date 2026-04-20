@@ -60,7 +60,7 @@ Asegúrate de tener el driver de MySQL y el núcleo de Hibernate en tu `pom.xml`
 ## Paso 3: Archivo de Configuración (hibernate.cfg.xml)
 
 Crea este archivo en la carpeta src/main/resources. Aquí definimos las credenciales por defecto de Laragon.
-
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -79,12 +79,12 @@ Crea este archivo en la carpeta src/main/resources. Aquí definimos las credenci
 
         </session-factory>
 </hibernate-configuration>
-
+```
 
 ## Paso 4: Implementación en Java
 
 Para interactuar con la base de datos, seguimos este flujo básico de transacciones:
-
+```xml
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -109,3 +109,5 @@ public class Main {
         }
     }
 }
+```
+ok?
