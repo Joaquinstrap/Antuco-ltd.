@@ -8,6 +8,14 @@ Es como xampp, sirve para levantar la base de datos y poder ocuparla
 
 Es el elemento que ayud a conectar los datos del microservicio con la BD, de forma automatica crea las tablas (creo). 
 
+# DEPENDENCIAS
+¿Qué hice?
+## Spring Data JPA               SQL
+## Lombok                        DEVELOPER TOOLS
+## Spring Web                    WEB
+## Validation                    I/O
+## MySQL Driver                  SQL
+
 # INFORMACIÓN DEL PROYECTO
 
 
