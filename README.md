@@ -19,7 +19,7 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | Spring Web        | WEB                |
 | Validation        | I/O                |
 | MySQL Driver      | SQL                |
-
+| WebClient         | WEB                |
 
 ---
 
