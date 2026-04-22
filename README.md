@@ -22,22 +22,20 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | WebClient         | WEB                |
 
 ---
-<img width="1525" height="871" alt="image" src="https://github.com/user-attachments/assets/e220f610-1643-4164-a4a2-a3b352464fcf" />
-
 
 # INFORMACIÓN DEL PROYECTO
 
 
-# COMO CONECTAR HIBERNATE A LARAGON:
+# COMO CONECTAR HIBERNATE A XAMPP:
 ## Qué Hice?
 
-Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **Laragon**.
+Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **XAMPP**.
 
 ---
 
 ## 📋 Requisitos Previos
 
-1.  **Laragon** instalado y ejecutándose.
+1.  **XAMPP** instalado y ejecutándose.
 2.  **MySQL/MariaDB** activo en Laragon (botón "Start All").
 3.  **HeidiSQL** (incluido en Laragon) para gestionar la base de datos.
 
@@ -129,4 +127,9 @@ public class Main {
     }
 }
 ```
+<img width="1525" height="871" alt="image" src="https://github.com/user-attachments/assets/0a1bbc85-38ff-47ce-bfc5-80cc3656d949" />
+
+
+
+
 ok?
