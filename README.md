@@ -22,6 +22,18 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | WebClient         | WEB                |
 
 ---
+spring.application.name=hospital
+
+spring.datasource.url=jdbc:mysql://localhost:3306/db_hospital_vm
+spring.datasource.username=root
+spring.datasource.password=
+
+spring.jpa.hibernate.ddl-auto=update 
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format.sql=true
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+#No se puede iniciar esa linea de arriba por el hecho de las versiones
+#pero asi se hace a conexcion automatica
 
 # INFORMACIÓN DEL PROYECTO
 
