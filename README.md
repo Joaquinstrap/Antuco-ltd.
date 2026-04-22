@@ -11,12 +11,15 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 ---
 
 # DEPENDENCIAS
-## ¿Qué hice?
-#### Spring Data JPA               SQL
-#### Lombok                        DEVELOPER TOOLS
-#### Spring Web                    WEB
-#### Validation                    I/O
-#### MySQL Driver                  SQL
+
+| NOMBRE            | TIPO               |
+| ----------------- | ------------------ |
+| Spring Data JPA   | SQL                |
+| Lombok            | DEVELOPER TOOLS    |
+| Spring Web        | WEB                |
+| Validation        | I/O                |
+| MySQL Driver      | SQL                |
+
 
 ---
 
