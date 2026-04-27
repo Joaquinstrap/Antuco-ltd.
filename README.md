@@ -20,6 +20,7 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | Validation        | I/O                |
 | MySQL Driver      | SQL                |
 | WebClient         | WEB                |
+| Flyway            | BASE DE DATOS      |
 
 ---
 
