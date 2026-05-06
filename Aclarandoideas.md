@@ -6,6 +6,6 @@
   > private Double precio;
   > private int cantidad;
 
-¿? como se conecta el repository a la clase
+¿? como se conecta el repository a la clase en caso de que sean varias
 
 
