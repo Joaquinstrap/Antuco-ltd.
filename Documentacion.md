@@ -18,3 +18,5 @@ Es texto asociado a los usuarios que aparece en la pagina de un album en especif
 pagos noma, como paypal o visa lo que sea, se accede desde el carrito y se paga acorde al calculo que se hizo ahi
 # Relacion de microservicios entre si (que depende de que)
 <img width="780" height="705" alt="image" src="https://github.com/user-attachments/assets/c3bf8e6d-abe1-4e67-badf-2837d8c1932b" />
+# Work in Progress BD de catalogo
+<img width="945" height="610" alt="image" src="https://github.com/user-attachments/assets/4b3d9f33-de41-47db-878b-24848f0369f3" />
