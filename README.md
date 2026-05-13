@@ -1,5 +1,5 @@
 # ¿Que hice?
-
+<img width="1526" height="706" alt="imagen" src="https://github.com/user-attachments/assets/9ebbfe25-0bc4-4c6c-9249-d87a12737105" />
 # INFORMACIÓN IMPORTANTE
 ### Laragon: 
 
@@ -129,6 +129,9 @@ public class Main {
 }
 ```
 <img width="1525" height="871" alt="image" src="https://github.com/user-attachments/assets/0a1bbc85-38ff-47ce-bfc5-80cc3656d949" />
+
+
+
 
 
 
