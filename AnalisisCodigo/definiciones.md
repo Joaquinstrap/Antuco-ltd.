@@ -9,3 +9,30 @@
 
 #### @Column(nullable = false o true)
 > si el nullable es false entonces tu mismo debes escribir el dato, <br> por ejemplo en la fecha es true para que se genere sola
+
+#### @PastOrPresent
+> es para que no se ponga una fecha pasada a la fecha del pc
+
+#### @JsonFormat
+> es para que ese atributo en especifico de la clase (FECHA) se vea en formato JSON 
+
+#### @Creation
+> 
+
+####
+>
+
+####
+>
+
+####
+>
+
+####
+>
+
+####
+>
+
+####
+>
