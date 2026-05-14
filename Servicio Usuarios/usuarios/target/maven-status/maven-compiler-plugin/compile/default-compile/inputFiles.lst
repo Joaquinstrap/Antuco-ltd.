@@ -1,1 +1,5 @@
 /home/sajid/Descargas/usuarios/src/main/java/com/example/antuco/usuarios/UsuariosApplication.java
+/home/sajid/Descargas/usuarios/src/main/java/com/example/antuco/usuarios/controller/Controller.java
+/home/sajid/Descargas/usuarios/src/main/java/com/example/antuco/usuarios/exception/Exception.java
+/home/sajid/Descargas/usuarios/src/main/java/com/example/antuco/usuarios/repository/Repository.java
+/home/sajid/Descargas/usuarios/src/main/java/com/example/antuco/usuarios/service/Service.java
