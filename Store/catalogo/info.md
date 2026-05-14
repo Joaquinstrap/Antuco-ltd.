@@ -18,36 +18,36 @@ Permite buscar mediante entrada de texto un album especifico, o directamente man
 
 ## Base de datos
 
-ALBUM
-PK idcatalogo
-nombre
-fecha
-portada
-descripcion
+ALBUM  
+PK idcatalogo  
+nombre  
+fecha  
+portada  
+descripcion  
 
-EDICION
-PK idedicion
-FK idcatalogo
-nombretipo
-material
+EDICION  
+PK idedicion  
+FK idcatalogo  
+nombretipo  
+material  
 
-ROPA
-PK idropa
-tipoprenda
-color
-materialropa
-talla
+ROPA  
+PK idropa  
+tipoprenda  
+color  
+materialropa  
+talla  
 
-PRODUCTO
-PK idproducto
-FK idcatalogo
-FK idropa
-nombre
-descripcion
-precio
+PRODUCTO  
+PK idproducto  
+FK idcatalogo  
+FK idropa  
+nombre  
+descripcion  
+precio  
 
 ## Metodos
 
-buscar() (parametro es texto del usuario ingresado por frontend)
-agregarCarrito() (parametro es el id de producto)
-(agregar y editar supongo que tambien pero puta que paja wn)
+buscar() (parametro es texto del usuario ingresado por frontend)  
+agregarCarrito() (parametro es el id de producto)  
+(agregar y editar supongo que tambien pero puta que paja wn)  
