@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+// SUPER IMPORTANTE!!!!!
 @Entity
 @Table(name = "almacen_usuario")
 public class Usuario {
