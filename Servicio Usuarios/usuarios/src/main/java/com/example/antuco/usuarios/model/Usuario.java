@@ -24,7 +24,5 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private String username; // Usaremos esto como el ID para el carrito (ej: email)
 
-    private String password; // Aquí guardaremos la contraseña encriptada
-
     private String rol; // Ej: "USER", "ADMIN"
 }
