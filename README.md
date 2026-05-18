@@ -4,9 +4,9 @@
 
 # INFORMACIÓN IMPORTANTE
 
-Usuarios (8082): Crea y valida usuarios.
-Carrito (8081): Guarda compras.
-Catálogo (8080): Da información de productos.
+Usuarios (8082): Crea y valida usuarios.<br>
+Carrito (8081): Guarda compras.<br>
+Catálogo (8080): Da información de productos.<br>
 
 ### Laragon: 
 
