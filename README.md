@@ -1,5 +1,6 @@
 # ¿Que hice?
-<img width="1526" height="706" alt="imagen" src="https://github.com/user-attachments/assets/9ebbfe25-0bc4-4c6c-9249-d87a12737105" />
+<img width="1717" height="962" alt="imagen" src="https://github.com/user-attachments/assets/21ae1cfb-0b3e-4778-858b-220a9e09757e" />
+
 
 # INFORMACIÓN IMPORTANTE
 ### Laragon: 
