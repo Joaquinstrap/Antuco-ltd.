@@ -1,5 +1,7 @@
 package com.example.antuco.carrito.controller;
 
+import java.util.Map; // <--- ESTA ES LA LÍNEA QUE FALTABA
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,7 +33,6 @@ public class CarritoController {
     // Endpoint para agregar un producto
     @PostMapping("/agregar")
     public ResponseEntity<Carrito> agregarAlCarrito(@RequestBody AgregarItemRequest request) {
-        // Aquí ideally validarías que el request.getUsuarioId() no sea nulo
         Carrito carritoActualizado = carritoService.agregarItem(request);
         return ResponseEntity.ok(carritoActualizado);
     }
@@ -41,5 +42,16 @@ public class CarritoController {
     public ResponseEntity<Void> eliminarItem(@PathVariable Long carritoId, @PathVariable Long itemId) {
         carritoService.eliminarItem(carritoId, itemId);
         return ResponseEntity.noContent().build();
+    }
+
+    // Endpoint nuevo para agregar desde Catálogo
+    @PostMapping("/agregar-simple")
+    public ResponseEntity<String> agregarSimple(@RequestBody Map<String, Object> payload) {
+        String usuarioId = (String) payload.get("usuarioId");
+        Long productoId = Long.valueOf(payload.get("productoId").toString());
+        Integer cantidad = Integer.valueOf(payload.get("cantidad").toString());
+
+        carritoService.agregarItemSimple(usuarioId, productoId, cantidad);
+        return ResponseEntity.ok("Agregado desde catálogo");
     }
 }
