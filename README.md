@@ -3,6 +3,11 @@
 
 
 # INFORMACIÓN IMPORTANTE
+
+Usuarios (8082): Crea y valida usuarios.
+Carrito (8081): Guarda compras.
+Catálogo (8080): Da información de productos.
+
 ### Laragon: 
 
 Es como xampp, sirve para levantar la base de datos y poder ocuparla
