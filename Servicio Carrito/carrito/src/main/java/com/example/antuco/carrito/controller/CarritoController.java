@@ -1,6 +1,6 @@
 package com.example.antuco.carrito.controller;
 
-import java.util.Map; // <--- ESTA ES LA LÍNEA QUE FALTABA
+import java.util.Map; // Importación necesaria para el payload
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.antuco.carrito.dto.AgregarItemRequest;
 import com.example.antuco.carrito.model.Carrito;
 import com.example.antuco.carrito.service.CarritoService;
 
@@ -23,28 +22,21 @@ public class CarritoController {
     @Autowired
     private CarritoService carritoService;
 
-    // Endpoint para ver el carrito de un usuario
+    // 1. Ver carrito
     @GetMapping("/{usuarioId}")
     public ResponseEntity<Carrito> verCarrito(@PathVariable String usuarioId) {
         Carrito carrito = carritoService.obtenerCarritoPorUsuario(usuarioId);
         return ResponseEntity.ok(carrito);
     }
 
-    // Endpoint para agregar un producto
+    // 2. Agregar item manual (enviando todos los datos)
     @PostMapping("/agregar")
-    public ResponseEntity<Carrito> agregarAlCarrito(@RequestBody AgregarItemRequest request) {
+    public ResponseEntity<Carrito> agregarAlCarrito(@RequestBody com.example.antuco.carrito.dto.AgregarItemRequest request) {
         Carrito carritoActualizado = carritoService.agregarItem(request);
         return ResponseEntity.ok(carritoActualizado);
     }
 
-    // Endpoint para eliminar un item
-    @DeleteMapping("/{carritoId}/item/{itemId}")
-    public ResponseEntity<Void> eliminarItem(@PathVariable Long carritoId, @PathVariable Long itemId) {
-        carritoService.eliminarItem(carritoId, itemId);
-        return ResponseEntity.noContent().build();
-    }
-
-    // Endpoint nuevo para agregar desde Catálogo
+    // 3. Agregar item simple (Conectando con Catálogo por ID)
     @PostMapping("/agregar-simple")
     public ResponseEntity<String> agregarSimple(@RequestBody Map<String, Object> payload) {
         String usuarioId = (String) payload.get("usuarioId");
@@ -52,6 +44,13 @@ public class CarritoController {
         Integer cantidad = Integer.valueOf(payload.get("cantidad").toString());
 
         carritoService.agregarItemSimple(usuarioId, productoId, cantidad);
-        return ResponseEntity.ok("Agregado desde catálogo");
+        return ResponseEntity.ok("Agregado desde catálogo con éxito");
+    }
+
+    // 4. Eliminar item
+    @DeleteMapping("/{carritoId}/item/{itemId}")
+    public ResponseEntity<Void> eliminarItem(@PathVariable Long carritoId, @PathVariable Long itemId) {
+        carritoService.eliminarItem(carritoId, itemId);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -12,8 +12,9 @@ public class CarritoApplication {
 		SpringApplication.run(CarritoApplication.class, args);
 	}
 
-	@Bean
+	// ESTE ES EL BEAN QUE PERMITE LA CONEXIÓN ENTRE SERVICIOS
+    @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
-    }
+	}
 }
