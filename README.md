@@ -4,7 +4,8 @@
 
 # INFORMACIÓN IMPORTANTE
 
-Autenticacion (8083): Guarda el username y la contraseña segura <br>
+Pagos (8084): Guarda un historial de pagos de un usuario.<br>
+Autenticacion (8083): Guarda el username y la contraseña segura.<br>
 Usuarios (8082): Crea y asigna rol a usuarios.<br>
 Carrito (8081): Guarda compras.<br>
 Catálogo (8080): Da información de productos.<br>
