@@ -4,7 +4,8 @@
 
 # INFORMACIÓN IMPORTANTE
 
-Usuarios (8082): Crea y valida usuarios.<br>
+Autenticacion (8083): Guarda el username y la contraseña segura <br>
+Usuarios (8082): Crea y asigna rol a usuarios.<br>
 Carrito (8081): Guarda compras.<br>
 Catálogo (8080): Da información de productos.<br>
 
@@ -26,6 +27,7 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | Spring Web        | WEB                |
 | Validation        | I/O                |
 | MySQL Driver      | SQL                |
+| MariaDB Driver    | SQL                |
 | WebClient         | WEB                |
 | Flyway            | BASE DE DATOS      |
 
