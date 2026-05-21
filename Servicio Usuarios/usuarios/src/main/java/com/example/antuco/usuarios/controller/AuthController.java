@@ -23,4 +23,15 @@ public class AuthController {
         return ResponseEntity.ok(usuarioService.registrar(request));
     }
 
+    // Supuestamente hay que agregar esto para que funcione el pago?
+    // Z.ai tiene demencia ojo vecinos
+    @GetMapping("/{username}")
+    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable String username) {
+        Usuario usuario = usuarioRepository.findByUsername(username);
+        if (usuario == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(usuario);
+    }
+    
 }
