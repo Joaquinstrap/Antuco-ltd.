@@ -1,4 +1,4 @@
-# ¿Que hice?
+<h1 align="center">Antuco-ltd</h1> <br>
 
 [**Click Aquí para Obtener la Configuración!**](https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.6&packaging=jar&configurationFileFormat=properties&jvmVersion=25&groupId=com.example.antuco&artifactId=&packageName=com.example.antuco.&dependencies=lombok,web,data-jpa,validation,mysql,mariadb,flyway)
 
@@ -7,19 +7,13 @@
 
 # INFORMACIÓN IMPORTANTE
 
-Comentarios (8085): 
-Pagos (8084): Guarda un historial de pagos de un usuario.<br>
-Autenticacion (8083): Guarda el username y la contraseña segura.<br>
-Usuarios (8082): Crea y asigna rol a usuarios.<br>
-Carrito (8081): Guarda compras.<br>
-Catálogo (8080): Da información de productos.<br>
-
-### Laragon: 
-
-Es como xampp, sirve para levantar la base de datos y poder ocuparla
-### Hibernate: 
-
-Es el elemento que ayud a conectar los datos del microservicio con la BD, de forma automatica crea las tablas (creo). 
+#### Evento (8086)[eventos_bd]: <br>
+#### Comentarios (8085): <br>
+#### Pagos (8084): Guarda un historial de pagos de un usuario.<br>
+#### Autenticacion (8083): Guarda el username y la contraseña segura.<br>
+#### Usuarios (8082): Crea y asigna rol a usuarios.<br>
+#### Carrito (8081): Guarda compras.<br>
+#### Catálogo (8080): Da información de productos.<br>
 
 ---
 
@@ -38,15 +32,18 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 
 
 ## Dependencia de seguridad pom.xml
+```
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
+```
 ---
 
 # INFORMACIÓN DEL PROYECTO
 
-## Crear Comentario (POST):<br>
+<h1 align="center">Comentario</h1>
+### Crear Comentario (POST):<br>
 URL: http://localhost:8085/api/V1/comentarios/con-usuario <br>
 Body:<br>
 ```json
@@ -58,9 +55,45 @@ Body:<br>
     }
 ```
      
-## Ver Comentarios (GET):
+### Ver Comentarios (GET):
 
-URL: http://localhost:8085/api/V1/comentarios/producto/1
+---
+
+<h1 align="center">Evento</h1>
+
+
+### Crear un Concierto (POST):<br>
+
+URL: http://localhost:8086/api/V1/eventos <br>
+Body:
+```json
+     
+      {
+        "nombre": "Gira de Despedida",
+        "fecha": "2024-12-31T22:00:00",
+        "lugar": "Estadio Nacional",
+        "precio": 15000.0,
+        "capacidadTotal": 100
+    }
+```
+     
+Comprar Entradas (POST):<br>
+
+URL: http://localhost:8086/api/V1/eventos/reservar<br>
+Body:
+
+```json
+          
+    {
+        "eventoId": 1,
+        "cantidad": 2,
+        "usuarioUsername": "fan_nro1"
+    }
+```     
+
+Intentar comprar de más (Prueba de error):<br>
+Intenta comprar 99 entradas más (total 101). Debería decirte "No hay suficientes entradas".<br>
+URL: http://localhost:8085/api/V1/comentarios/producto/1 <br>
 
 # COMO CONECTAR HIBERNATE A XAMPP:
 ## Qué Hice?
