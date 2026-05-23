@@ -36,6 +36,12 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 | WebClient         | WEB                |
 | Flyway            | BASE DE DATOS      |
 
+
+## Dependencia de seguridad pom.xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
 ---
 
 # INFORMACIÓN DEL PROYECTO
