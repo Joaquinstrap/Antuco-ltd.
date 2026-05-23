@@ -43,6 +43,7 @@
 # INFORMACIÓN DEL PROYECTO
 
 <h1 align="center">Comentario</h1>
+
 ### Crear Comentario (POST):<br>
 URL: http://localhost:8085/api/V1/comentarios/con-usuario <br>
 Body:<br>
@@ -95,6 +96,7 @@ Intentar comprar de más (Prueba de error):<br>
 Intenta comprar 99 entradas más (total 101). Debería decirte "No hay suficientes entradas".<br>
 URL: http://localhost:8085/api/V1/comentarios/producto/1 <br>
 
+---
 # COMO CONECTAR HIBERNATE A XAMPP:
 ## Qué Hice?
 
