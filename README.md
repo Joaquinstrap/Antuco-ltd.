@@ -4,6 +4,7 @@
 
 # INFORMACIÓN IMPORTANTE
 
+Comentarios (8085): 
 Pagos (8084): Guarda un historial de pagos de un usuario.<br>
 Autenticacion (8083): Guarda el username y la contraseña segura.<br>
 Usuarios (8082): Crea y asigna rol a usuarios.<br>
@@ -36,6 +37,21 @@ Es el elemento que ayud a conectar los datos del microservicio con la BD, de for
 
 # INFORMACIÓN DEL PROYECTO
 
+## Crear Comentario (POST):<br>
+URL: http://localhost:8085/api/V1/comentarios/con-usuario <br>
+Body:<br>
+```json
+    {
+        "productoId": 1,
+        "usuarioUsername": "juan_perez",
+        "texto": "Este vinilo es increíble, la mejor banda!",
+        "calificacion": 5
+    }
+```
+     
+## Ver Comentarios (GET):
+
+URL: http://localhost:8085/api/V1/comentarios/producto/1
 
 # COMO CONECTAR HIBERNATE A XAMPP:
 ## Qué Hice?
