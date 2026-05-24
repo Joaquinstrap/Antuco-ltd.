@@ -7,6 +7,8 @@
 
 # INFORMACIÓN IMPORTANTE
 
+#### Pedidos (8088): <br>
+#### Inventario (8087): <br>
 #### Evento (8086)[eventos_bd]: <br>
 #### Comentarios (8085): <br>
 #### Pagos (8084): Guarda un historial de pagos de un usuario.<br>
