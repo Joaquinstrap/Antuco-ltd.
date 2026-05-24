@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class RegistroRequest {
     private String username;
-    private String password;
+    private String clave;
     private String rol; // Opcional, por defecto podría ser USER
 }
