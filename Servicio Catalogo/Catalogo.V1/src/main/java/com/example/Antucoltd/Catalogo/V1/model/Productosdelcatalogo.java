@@ -51,7 +51,7 @@ public abstract class Productosdelcatalogo {
     private Double precio;
 
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<ProductoAtributo> atributos = new ArrayList<>();
 
