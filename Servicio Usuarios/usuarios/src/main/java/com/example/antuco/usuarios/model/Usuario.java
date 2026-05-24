@@ -24,5 +24,8 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private String username; // Usaremos esto como el ID para el carrito (ej: email)
 
+    @Column(nullable = false)
+    private String clave;
+    
     private String rol; // Ej: "USER", "ADMIN"
 }
