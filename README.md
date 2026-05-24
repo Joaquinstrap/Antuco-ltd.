@@ -55,6 +55,79 @@
 
 # INFORMACIÓN DEL PROYECTO
 
+<h1 align="center">Catálogo</h1>
+
+### Obtener Producto (GET):<br>
+URL: http://localhost:8080/api/V1/productos/1 <br>
+Nota: Devuelve la información del producto (nombre, precio, categoría) para que otros servicios la consuman.
+
+---
+
+<h1 align="center">Carrito</h1>
+
+### Agregar Item Simple (POST):<br>
+URL: http://localhost:8081/api/V1/carrito/agregar-simple <br>
+Body:<br>
+```json
+    {
+        "usuarioId": "nombre123xd",
+        "productoId": 1,
+        "cantidad": 2
+    }
+```
+Nota: Este endpoint consulta automáticamente al servicio de Catálogo para obtener el nombre y precio.
+
+### Ver Carrito (GET):<br>
+URL: http://localhost:8081/api/V1/carrito/nombre123xd <br>
+Nota: Muestra todos los items actuales en el carrito del usuario.
+
+---
+
+<h1 align="center">Usuarios</h1>
+
+### Registrar Usuario (POST):<br>
+URL: http://localhost:8082/api/V1/auth/registro <br>
+Body:<br>
+```json
+    {
+        "username": "juaco_teto",
+        "password": "password123",
+        "rol": "USER"
+    }
+```
+
+---
+
+<h1 align="center">Autenticacion</h1>
+
+### Login (POST):<br>
+URL: http://localhost:8083/api/V1/autenticacion/login <br>
+Body:<br>
+```json
+    {
+        "username": "Alonozxd",
+        "password": "password123"
+    }
+```
+Nota: Si es exitoso, devuelve un TOKEN (JWT) para ser usado en futuras peticiones.
+
+---
+
+<h1 align="center">Pagos</h1>
+
+### Procesar Pago (POST):<br>
+URL: http://localhost:8084/api/V1/pagos/procesar <br>
+Body:<br>
+```json
+    {
+        "monto": 25000.0,
+        "metodo": "TARJETA_CREDITO"
+    }
+```
+Nota: Simula la validación de la tarjeta y devuelve un estado de aprobación.
+
+---
+
 <h1 align="center">Comentario</h1>
 
 ### Crear Comentario (POST):<br>
@@ -63,41 +136,37 @@ Body:<br>
 ```json
     {
         "productoId": 1,
-        "usuarioUsername": "juan_perez",
+        "usuarioUsername": "nico_chavez",
         "texto": "Este vinilo es increíble, la mejor banda!",
         "calificacion": 5
     }
 ```
      
-### Ver Comentarios (GET):
+### Ver Comentarios (GET):<br>
+URL: http://localhost:8085/api/V1/comentarios/producto/1 <br>
 
 ---
 
 <h1 align="center">Evento</h1>
 
-
 ### Crear un Concierto (POST):<br>
-
 URL: http://localhost:8086/api/V1/eventos <br>
 Body:
 ```json
-     
-      {
+    {
         "nombre": "Gira de Despedida",
-        "fecha": "2024-12-31T22:00:00",
+        "fecha": "2026-12-31T22:00:00",
         "lugar": "Estadio Nacional",
         "precio": 15000.0,
         "capacidadTotal": 100
     }
 ```
      
-Comprar Entradas (POST):<br>
-
+### Comprar Entradas (POST):<br>
 URL: http://localhost:8086/api/V1/eventos/reservar<br>
 Body:
 
 ```json
-          
     {
         "eventoId": 1,
         "cantidad": 2,
@@ -105,9 +174,65 @@ Body:
     }
 ```     
 
-Intentar comprar de más (Prueba de error):<br>
-Intenta comprar 99 entradas más (total 101). Debería decirte "No hay suficientes entradas".<br>
-URL: http://localhost:8085/api/V1/comentarios/producto/1 <br>
+### Ver Reservas (GET):<br>
+URL: http://localhost:8086/api/V1/eventos/reservas <br>
+
+---
+
+<h1 align="center">Inventario</h1>
+
+### Crear Registro de Stock (POST):<br>
+URL: http://localhost:8087/api/V1/inventario <br>
+Body:
+```json
+    {
+        "productoId": 1,
+        "cantidad": 50,
+        "tipoProducto": "Vinilo"
+    }
+```
+
+### Decrementar Stock (PUT):<br>
+URL: http://localhost:8087/api/V1/inventario/producto/1/decrementar?cantidad=2 <br>
+Nota: Usado por el servicio de Pedidos. Si no hay suficiente stock, lanzará un error.
+
+---
+
+<h1 align="center">Pedidos</h1>
+
+### Crear Pedido / Checkout (POST):<br>
+URL: http://localhost:8088/api/V1/pedidos/crear <br>
+Body:
+```json
+    {
+        "usuarioUsername": "seba_test",
+        "items": [
+            {
+                "productoId": 1,
+                "nombreProducto": "Vinilo Edición Plata",
+                "cantidad": 1,
+                "precioUnitario": 25000.0
+            }
+        ]
+    }
+```
+Nota: Este endpoint orquesta todo: Valida Inventario, Cobra con Pagos y Guarda la orden.
+
+---
+
+<h1 align="center">Media</h1>
+
+### Subir Canción (POST):<br>
+URL: http://localhost:8089/api/V1/media/subir <br>
+Body (Form-data, no JSON):<br>
+- Key: `titulo`, Value: `Mi Canción`<br>
+- Key: `idAlbum`, Value: `01`<br>
+- Key: `file`, Value: (Seleccionar archivo .mp3)<br>
+
+### Reproducir Canción (GET):<br>
+URL: http://localhost:8089/api/V1/media/reproducir/1 <br>
+Nota: Abrir esta URL en el navegador reproduce el audio directamente.
+
 
 ---
 # COMO CONECTAR HIBERNATE A XAMPP:
