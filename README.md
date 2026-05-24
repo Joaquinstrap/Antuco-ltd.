@@ -7,15 +7,26 @@
 
 # INFORMACIÓN IMPORTANTE
 
-#### Pedidos (8088): <br>
-#### Inventario (8087): <br>
-#### Evento (8086)[eventos_bd]: <br>
-#### Comentarios (8085): <br>
-#### Pagos (8084): Guarda un historial de pagos de un usuario.<br>
-#### Autenticacion (8083): Guarda el username y la contraseña segura.<br>
-#### Usuarios (8082): Crea y asigna rol a usuarios.<br>
-#### Carrito (8081): Guarda compras.<br>
-#### Catálogo (8080): Da información de productos.<br>
+#### Catalogo (8080) [catalogo_bd]: 
+> Da información de productos.<br>
+#### Carrito (8081) [carrito_bd]:
+> Guarda compras temporales.<br>
+#### Usuarios (8082) [usuarios_bd]:
+> Crea y asigna rol a usuarios.<br>
+#### Autenticacion (8083) [autenticacion_bd]:
+> Guarda el username y la contraseña segura.<br>
+#### Pagos (8084) [pagos_bd]:
+> Guarda un historial de pagos de un usuario.<br>
+#### Comentarios (8085) [comentarios_bd]:
+> Sistema de reseñas y calificaciones.<br>
+#### Evento (8086) [eventos_bd]:
+> Gestión de conciertos y venta de entradas.<br>
+#### Inventario (8087) [inventario_bd]:
+> Control de stock físico y existencias.<br>
+#### Pedidos (8088) [pedidos_bd]:
+> Orquestador de ventas, conecta Pagos e Inventario.<br>
+#### Media (8089) [media_bd]:
+> Reproductor de música y carga de archivos MP3.<br>
 
 ---
 
