@@ -1,6 +1,6 @@
-# Guía de Implementación de OpenFeign
+<h1 align="center">Guía de Implementación de OpenFeign</h1>
 
-Este documento describe cómo implementar la librería OpenFeign para gestionar la comunicación entre microservicios, reemplazando el uso manual de RestTemplate.
+Este documento describe cómo implementar la librería OpenFeign para gestionar la comunicación entre microservicios, (reemplazando el uso manual de RestTemplate)
 
 ## 1. Agregar la Dependencia
 
