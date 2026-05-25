@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,6 +18,7 @@ public class Categoria {
 
     @Id
     @NotBlank(message = "El ID de la categoría no puede estar vacío")
+    @JsonProperty("Id")
     private String id;
 
 
