@@ -25,6 +25,7 @@ public class ItemCarrito {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrito_id", nullable = false)
+    @JsonIgnore
     private Carrito carrito;
 
     // Datos que vienen del servicio de catálogo (Snapshot)
