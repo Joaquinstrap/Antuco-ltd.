@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import jakarta.persistence.*;
@@ -35,6 +36,7 @@ public abstract class Productosdelcatalogo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("Id")
     private Long Id;
 
     @NotBlank(message = "El nombre del producto debe ser correcto")
