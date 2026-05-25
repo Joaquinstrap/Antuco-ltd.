@@ -43,7 +43,7 @@ public class ProductoController {
         }
     }
     // -- 3. Buscar productos por Categoría --
-    // -- 3. Buscar productos por Categoría --
+    
     @GetMapping("/categoria/{categoriaId}")
     public ResponseEntity<List<Productosdelcatalogo>> listarPorCategoria(@PathVariable String categoriaId) {
         // Corregido: Se quitó la variable 'id' residual al final
@@ -51,7 +51,7 @@ public class ProductoController {
     }
 
     @PostMapping
-    public ResponseEntity<?> guardar(@RequestBody productoDTO dto) { // <-- Usando tu nombre exacto (con p minúscula)
+    public ResponseEntity<?> guardar(@RequestBody productoDTO dto) { // <-- Usando el nombre exacto (con p minúscula)
         try {
             Productosdelcatalogo productoReal;
 
@@ -84,7 +84,7 @@ public class ProductoController {
                 productoReal.setCategoria(cat);
             }
 
-            // 3. Procesamos los atributos extra usando tu clase ProductoAtributo
+            // 3. Procesamos los atributos extra usando la clase ProductoAtributo
             if (dto.getAtributosExtra() != null) {
                 for (Map.Entry<String, String> entry : dto.getAtributosExtra().entrySet()) {
                     ProductoAtributo attr = new ProductoAtributo();
@@ -109,7 +109,7 @@ public class ProductoController {
     public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody productoDTO dto) {
         try {
             // 1. Buscamos el producto que ya existe en la base de datos
-            // (Ajusta "obtenerPorId" al nombre real del método que tengas en tu productoService)
+            // (Ajusta "obtenerPorId" al nombre real del método que este en el productoService)
             Productosdelcatalogo productoExistente = productoService.obtenerProductoPorId(id); 
             
             if (productoExistente == null) {
@@ -157,7 +157,7 @@ public class ProductoController {
             }
 
             // 5. Guardamos el objeto ya modificado
-            // 5. Guardamos el objeto ya modificado
+            
             Productosdelcatalogo actualizado = productoService.actualizarProducto(productoExistente);
             return ResponseEntity.ok(actualizado);
 
