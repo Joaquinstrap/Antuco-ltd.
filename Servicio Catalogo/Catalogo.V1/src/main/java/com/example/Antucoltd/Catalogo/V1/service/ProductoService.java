@@ -110,9 +110,9 @@ public class ProductoService {
     }
 
 
-    // ========================================================================
+    
     // 6. ELIMINAR PRODUCTO POR ID
-    // =========================================================================
+  
     @Transactional
     public boolean eliminarProducto(Long id) {
         if (productoRepository.existsById(id)) {
