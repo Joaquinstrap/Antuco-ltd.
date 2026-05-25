@@ -1,6 +1,7 @@
 package com.example.Antucoltd.Catalogo.V1.model;  
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -18,6 +19,7 @@ public class ProductoAtributo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("Id")
     private Long id;
 
     @ManyToOne
