@@ -1,6 +1,6 @@
 <h1 align="center">Antuco-ltd</h1> <br>
 
-[**Click Aquí para Obtener la Configuración!**](https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.6&packaging=jar&configurationFileFormat=properties&jvmVersion=25&groupId=com.example.antuco&artifactId=&packageName=com.example.antuco.&dependencies=lombok,web,data-jpa,validation,mysql,mariadb,flyway)
+[**Click Aquí para Obtener la Configuración!**]([https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.6&packaging=jar&configurationFileFormat=properties&jvmVersion=25&groupId=com.example.antuco&artifactId=&packageName=com.example.antuco.&dependencies=lombok,web,data-jpa,validation,mysql,mariadb,flyway](https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.7&packaging=jar&configurationFileFormat=properties&jvmVersion=21&groupId=com.grupodos.antuco&artifactId=&packageName=com.grupodos.antuco.&dependencies=lombok,web,data-jpa,validation,mysql,mariadb,flyway,cloud-feign,webflux))
 
 <img width="1717" height="962" alt="imagen" src="https://github.com/user-attachments/assets/21ae1cfb-0b3e-4778-858b-220a9e09757e" />
 
