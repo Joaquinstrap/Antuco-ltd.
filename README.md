@@ -51,6 +51,15 @@
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 ```
+
+
+## Dependencia de eureka (en cada microservicio)
+```
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+```
 ---
 
 # INFORMACIÓN DEL PROYECTO
