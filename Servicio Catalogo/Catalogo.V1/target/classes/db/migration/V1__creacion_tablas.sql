@@ -29,4 +29,4 @@ CREATE TABLE producto_atributos (
     valor_atributo VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_atributos_producto FOREIGN KEY (producto_id) REFERENCES productosdelcatalogo(id) ON DELETE CASCADE
-)
+);
