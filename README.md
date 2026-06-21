@@ -29,6 +29,24 @@
 > Reproductor de música y carga de archivos MP3.<br>
 
 ---
+### Añadir package 'config' en caso de error RestTemplate 
+```java
+package com.example.antuco.carrito.config; 
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+@Configuration
+public class RestTemplateConfig {
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+}
+```
+---
 
 # DEPENDENCIAS
 
@@ -58,6 +76,16 @@
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+```
+
+
+## Dependencia de swagger
+```
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
 </dependency>
 ```
 ---
@@ -245,7 +273,6 @@ Nota: Abrir esta URL en el navegador reproduce el audio directamente.
 
 ---
 # COMO CONECTAR HIBERNATE A XAMPP:
-## Qué Hice?
 
 Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **XAMPP**.
 
@@ -346,11 +373,3 @@ public class Main {
 }
 ```
 <img width="1525" height="871" alt="image" src="https://github.com/user-attachments/assets/0a1bbc85-38ff-47ce-bfc5-80cc3656d949" />
-
-
-
-
-
-
-
-ok?
