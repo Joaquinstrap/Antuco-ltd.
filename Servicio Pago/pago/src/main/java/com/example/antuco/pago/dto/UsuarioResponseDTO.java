@@ -1,0 +1,10 @@
+package com.example.antuco.pago.dto;
+
+import lombok.Data;
+
+@Data
+public class UsuarioResponseDTO {
+    private Long id;
+    private String username;
+    private String rol;
+}
