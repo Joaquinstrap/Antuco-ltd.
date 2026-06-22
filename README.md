@@ -92,6 +92,10 @@ public class RestTemplateConfig {
 
 # INFORMACIÓN DEL PROYECTO
 
+### Link del Swagger para los microservicios
+localhost:8080/swagger-ui/index.html
+este es por defecto. se puede hacer una carpeta de config para editar hartas partes
+
 <h1 align="center">Catálogo</h1>
 
 ### Obtener Producto (GET):<br>
