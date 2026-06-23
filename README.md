@@ -85,7 +85,7 @@ public class RestTemplateConfig {
 <dependency>
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-    <version>2.5.0</version>
+    <version>3.0.2</version>
 </dependency>
 ```
 ---
