@@ -15,26 +15,33 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.antuco.carrito.model.Carrito;
 import com.example.antuco.carrito.service.CarritoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/api/V1/carrito")
+@Tag(name = "Carrito", description = "CRUD del carro")
 public class CarritoController {
 
     @Autowired
     private CarritoService carritoService;
 
     @GetMapping("/{usuarioId}")
+    @Operation(summary = "Ver carrito", description = "Listar el carrito de un usuario")
     public ResponseEntity<Carrito> verCarrito(@PathVariable String usuarioId) {
         Carrito carrito = carritoService.obtenerCarritoPorUsuario(usuarioId);
         return ResponseEntity.ok(carrito);
     }
 
     @PostMapping("/agregar")
+    @Operation(summary = "Agregar", description = "Agrega un producto a un carrito por id")
     public ResponseEntity<Carrito> agregarAlCarrito(@RequestBody com.example.antuco.carrito.dto.AgregarItemRequest request) {
         Carrito carritoActualizado = carritoService.agregarItem(request);
         return ResponseEntity.ok(carritoActualizado);
     }
 
     @PostMapping("/agregar-simple")
+    @Operation(summary = "Agregar simple", description = "Agrega un producto, pero con syntax diferente")
     public ResponseEntity<String> agregarSimple(@RequestBody Map<String, Object> payload) {
         String usuarioId = (String) payload.get("usuarioId");
         Long productoId = Long.valueOf(payload.get("productoId").toString());
@@ -45,6 +52,7 @@ public class CarritoController {
     }
 
     @DeleteMapping("/{carritoId}/item/{itemId}")
+    @Operation(summary = "Borrar producto", description = "Borra un producto del carrito acorde al id")
     public ResponseEntity<Void> eliminarItem(@PathVariable Long carritoId, @PathVariable Long itemId) {
         carritoService.eliminarItem(carritoId, itemId);
         return ResponseEntity.noContent().build();
