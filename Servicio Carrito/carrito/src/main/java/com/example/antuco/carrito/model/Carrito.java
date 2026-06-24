@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,18 +26,22 @@ public class Carrito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "ID del carrito asociado a usuario", example = "001")
     private Long id;
 
     // Identificador único del usuario (ej: UUID, email, o ID de otro servicio)
+    @Schema(description = "ID del usuario del carrito", example = "001")
     private String usuarioId;
 
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemCarrito> items = new ArrayList<>();
 
     @CreationTimestamp
+    @Schema(description = "Fecha en la que el carrito fue creado", example = "01-03-2026")
     private LocalDateTime fechaCreacion;
 
     @UpdateTimestamp
+    @Schema(description = "Fecha de ultimo cambio en el carrito", example = "22-06-2026")
     private LocalDateTime ultimaActualizacion;
 
     // Método helper para agregar items fácilmente desde el servicio
