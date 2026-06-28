@@ -1,379 +1,162 @@
-<h1 align="center">Antuco-ltd</h1> <br>
+<div align="center">
+
+# 🎸 Antuco-ltd
+### Arquitectura de Microservicios con Spring Boot y Spring Cloud
+
+[![Java](https://img.shields.io/badge/Java-21ED8B0?style=for-the-badge&logo=openjdk&logoColor=black)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.7-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-Eureka-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Flyway](https://img.shields.io/badge/Flyway-CC0200?style=for-the-badge&logo=flyway&logoColor=white)](https://flywaydb.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+
+</div>
+
+---
+
+## 📖 Descripción del Proyecto
 
 [**Click Aquí para Obtener la Configuración!**](https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.7&packaging=jar&configurationFileFormat=properties&jvmVersion=21&groupId=com.example.antuco&artifactId=&packageName=com.example.antuco.&dependencies=web,cloud-eureka,data-jpa,validation,flyway,mysql,mariadb,lombok)
 
-<img width="1341" height="865" alt="imagen" src="https://github.com/user-attachments/assets/2972b3ce-d447-4699-9803-01cde2700f67" />
+**Antuco-ltd** es una banda de música con una web diseñada específicamente para la gestión de eventos y merch. El sistema permite a los fans comprar merchandising oficial (vinilos, poleras, etc.), adquirir entradas para conciertos, reproducir media y dejar reseñas sobre los productos.
 
-
-# INFORMACIÓN IMPORTANTE
-
-#### Catalogo (8080) [catalogo_bd]: 
-> Da información de productos.<br>
-#### Carrito (8081) [carrito_bd]:
-> Guarda compras temporales.<br>
-#### Usuarios (8082) [usuarios_bd]:
-> Crea y asigna rol a usuarios.<br>
-#### Autenticacion (8083) [autenticacion_bd]:
-> Guarda el username y la contraseña segura.<br>
-#### Pagos (8084) [pagos_bd]:
-> Guarda un historial de pagos de un usuario.<br>
-#### Comentarios (8085) [comentarios_bd]:
-> Sistema de reseñas y calificaciones.<br>
-#### Evento (8086) [eventos_bd]:
-> Gestión de conciertos y venta de entradas.<br>
-#### Inventario (8087) [inventario_bd]:
-> Control de stock físico y existencias.<br>
-#### Pedidos (8088) [pedidos_bd]:
-> Orquestador de ventas, conecta Pagos e Inventario.<br>
-#### Media (8089) [media_bd]:
-> Reproductor de música y carga de archivos MP3.<br>
-
----
-### Añadir package 'config' en caso de error RestTemplate 
-```java
-package com.example.antuco.carrito.config; 
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
-
-@Configuration
-public class RestTemplateConfig {
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-}
-```
----
-
-# DEPENDENCIAS
-
-| NOMBRE            | TIPO               |
-| ----------------- | ------------------ |
-| Spring Data JPA   | SQL                |
-| Lombok            | DEVELOPER TOOLS    |
-| Spring Web        | WEB                |
-| Validation        | I/O                |
-| MySQL Driver      | SQL                |
-| MariaDB Driver    | SQL                |
-| WebClient         | WEB                |
-| Flyway            | BASE DE DATOS      |
-
-
-## Dependencia de seguridad pom.xml
-```
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
-</dependency>
-```
-
-
-## Dependencia de eureka (en cada microservicio)
-```
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-</dependency>
-```
-
-
-## Dependencia de swagger
-```
-<dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-    <version>3.0.2</version>
-</dependency>
-```
----
-
-# INFORMACIÓN DEL PROYECTO
-
-### Link del Swagger para los microservicios
-localhost:8080/swagger-ui/index.html
-este es por defecto. se puede hacer una carpeta de config para editar hartas partes
-
-<h1 align="center">Catálogo</h1>
-
-### Obtener Producto (GET):<br>
-URL: http://localhost:8080/api/V1/productos/1 <br>
-Nota: Devuelve la información del producto (nombre, precio, categoría) para que otros servicios la consuman.
+El proyecto está construido bajo una **arquitectura de microservicios**, garantizando alta escalabilidad, mantenimiento independiente de cada módulo y resiliencia.
 
 ---
 
-<h1 align="center">Carrito</h1>
+## 🏗️ Arquitectura y Microservicios
 
-### Agregar Item Simple (POST):<br>
-URL: http://localhost:8081/api/V1/carrito/agregar-simple <br>
-Body:<br>
-```json
-    {
-        "usuarioId": "nombre123xd",
-        "productoId": 1,
-        "cantidad": 2
-    }
-```
-Nota: Este endpoint consulta automáticamente al servicio de Catálogo para obtener el nombre y precio.
+El sistema está compuesto por **11 servicios en total** (1 Servidor de Descubrimiento + 10 Microservicios de Negocio). Todos los microservicios se registran en **Eureka** para el balanceo de carga y descubrimiento dinámico.
 
-### Ver Carrito (GET):<br>
-URL: http://localhost:8081/api/V1/carrito/nombre123xd <br>
-Nota: Muestra todos los items actuales en el carrito del usuario.
+### 🗺️ Mapa de Puertos y Bases de Datos
 
----
-
-<h1 align="center">Usuarios</h1>
-
-### Registrar Usuario (POST):<br>
-URL: http://localhost:8082/api/V1/auth/registro <br>
-Body:<br>
-```json
-    {
-        "username": "juaco_teto",
-        "password": "password123",
-        "rol": "USER"
-    }
-```
+| Microservicio           | Puerto | Base de Datos       | Descripción                                 |
+| ----------------------- | :----: | ------------------- | ------------------------------------------- |
+| **Eureka Server**       | `8761` | N/A                 | Servidor de descubrimiento de servicios.    |
+| **Catálogo**            | `8080` | `catalogo_bd`       | Información de productos (vinilos, ropa).   |
+| **Carrito**             | `8081` | `carrito_bd`        | Compras temporales del usuario.             |
+| **Usuarios**            | `8082` | `usuarios_bd`       | Gestión de usuarios y roles.                |
+| **Autenticación**       | `8083` | `autenticacion_bd`  | Seguridad, login y manejo de credenciales.  |
+| **Pagos**               | `8084` | `pagos_bd`          | Historial y procesamiento de pagos.         |
+| **Comentarios**         | `8085` | `comentarios_bd`    | Reseñas y calificaciones de productos.      |
+| **Eventos**             | `8086` | `eventos_bd`        | Gestión de conciertos y venta de entradas.  |
+| **Inventario**          | `8087` | `inventario_bd`     | Control de stock físico.                    |
+| **Pedidos**             | `8088` | `pedidos_bd`        | Orquestador de ventas (Saga transaccional). |
+| **Media**               | `8089` | `media_bd`          | URLs de imágenes y carga de archivos MP3.   |
 
 ---
 
-<h1 align="center">Autenticacion</h1>
+## 🔗 Lógica de Dependencias y Comunicación
 
-### Login (POST):<br>
-URL: http://localhost:8083/api/V1/autenticacion/login <br>
-Body:<br>
-```json
-    {
-        "username": "Alonozxd",
-        "password": "password123"
-    }
-```
-Nota: Si es exitoso, devuelve un TOKEN (JWT) para ser usado en futuras peticiones.
+La comunicación entre microservicios se realiza de forma asíncrona y síncrona utilizando `WebClient` a través de Eureka. La arquitectura se divide en tres capas lógicas:
 
----
+### 1. Servicios Independientes (Base)
+No dependen de nadie, son el pilar de los datos maestros.
+*  **Catálogo:** Información de productos.
+*  **Usuarios / Autenticación:** Gestión de identidad.
+*  **Eventos:** Gestión de conciertos.
 
-<h1 align="center">Pagos</h1>
+### 2. Servicios Dependientes (Lectura y Soporte)
+Consumen de los servicios base para validar existencia.
+*  **Inventario:** Depende de *Catálogo*. El stock carece de sentido sin el producto asociado.
+*  **Media:** Depende de *Catálogo*. Guarda las URLs de imágenes asociadas por ID de producto.
+*  **Comentarios:** Depende de *Usuarios* y *Catálogo*. Vincula el ID del usuario que comenta con el ID del producto comentado.
 
-### Procesar Pago (POST):<br>
-URL: http://localhost:8084/api/V1/pagos/procesar <br>
-Body:<br>
-```json
-    {
-        "monto": 25000.0,
-        "metodo": "TARJETA_CREDITO"
-    }
-```
-Nota: Simula la validación de la tarjeta y devuelve un estado de aprobación.
+### 3. Flujo Transaccional (Patrón Saga)
+El flujo de compra sigue un patrón de orquestación:
+1.  **Carrito:** Depende de *Usuarios* y *Catálogo*. Guarda la intención de compra temporal.
+2.  **Pedidos:** Recibe la info del Carrito, genera un número de orden y la pone en espera (Estado: PENDIENTE).
+3.  **Pagos:** Procesa el cobro de la orden (Simulación de pasarelas como Stripe/Transbank).
+   - ❌ **Si es rechazado:** Emite alerta de error, no se descuenta stock, el pedido queda fallido.
+   - ✅ **Si es aprobado:** Notifica a *Pedidos* (Pasa a estado PAGADA/EN PREPARACIÓN) y notifica a *Inventario* (Descuenta el stock físico).
 
 ---
 
-<h1 align="center">Comentario</h1>
+## 🛠️ Stack Tecnológico
 
-### Crear Comentario (POST):<br>
-URL: http://localhost:8085/api/V1/comentarios/con-usuario <br>
-Body:<br>
-```json
-    {
-        "productoId": 1,
-        "usuarioUsername": "nico_chavez",
-        "texto": "Este vinilo es increíble, la mejor banda!",
-        "calificacion": 5
-    }
-```
-     
-### Ver Comentarios (GET):<br>
-URL: http://localhost:8085/api/V1/comentarios/producto/1 <br>
+- **Lenguaje:** Java 21
+- **Framework:** Spring Boot 4.0.7
+- **Arquitectura de Nube:** Spring Cloud (Eureka Discovery Client)
+- **Base de Datos:** MySQL / MariaDB
+- **Migraciones:** Flyway
+- **Persistencia:** Spring Data JPA / Hibernate
+- **Comunicación reactiva:** Spring Reactive Web (WebClient)
+- **Documentación:** Swagger / OpenAPI
+- **Otros:** Lombok, Spring Validation
 
 ---
 
-<h1 align="center">Evento</h1>
+## ⚙️ Configuración y Ejecución Local
 
-### Crear un Concierto (POST):<br>
-URL: http://localhost:8086/api/V1/eventos <br>
-Body:
-```json
-    {
-        "nombre": "Gira de Despedida",
-        "fecha": "2026-12-31T22:00:00",
-        "lugar": "Estadio Nacional",
-        "precio": 15000.0,
-        "capacidadTotal": 100
-    }
-```
-     
-### Comprar Entradas (POST):<br>
-URL: http://localhost:8086/api/V1/eventos/reservar<br>
-Body:
+### Requisitos Previos
+- JDK 21 o superior instalado.
+- MySQL o MariaDB corriendo localmente.
+- Maven.
 
-```json
-    {
-        "eventoId": 1,
-        "cantidad": 2,
-        "usuarioUsername": "fan_nro1"
-    }
-```     
+### Pasos para levantar el sistema
 
-### Ver Reservas (GET):<br>
-URL: http://localhost:8086/api/V1/eventos/reservas <br>
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/Joaquinstrap/Antuco-ltd.git
+   cd Antuco-ltd
+   ```
 
----
+2. **Configurar Bases de Datos:**
+   Crea una base de datos vacía en tu gestor SQL para cada microservicio (ej: `catalogo_bd`, `usuarios_bd`, etc.). Flyway se encargará de crear las tablas automáticamente.
 
-<h1 align="center">Inventario</h1>
+3. **Levantar Eureka Server:**
+   Navega a la carpeta `eureka-server` y ejecuta:
+   ```bash
+   mvn spring-boot:run
+   ```
+   *Verifica que esté activo en: [http://localhost:8761](http://localhost:8761)*
 
-### Crear Registro de Stock (POST):<br>
-URL: http://localhost:8087/api/V1/inventario <br>
-Body:
-```json
-    {
-        "productoId": 1,
-        "cantidad": 50,
-        "tipoProducto": "Vinilo"
-    }
-```
-
-### Decrementar Stock (PUT):<br>
-URL: http://localhost:8087/api/V1/inventario/producto/1/decrementar?cantidad=2 <br>
-Nota: Usado por el servicio de Pedidos. Si no hay suficiente stock, lanzará un error.
+4. **Levantar los Microservicios:**
+   En terminales separadas, navega a la carpeta de cada microservicio y ejecuta:
+   ```bash
+   mvn spring-boot:run
+   ```
+   *Cada servicio se registrará automáticamente en Eureka.*
 
 ---
 
-<h1 align="center">Pedidos</h1>
+## 👥 Equipo de Desarrollo
 
-### Crear Pedido / Checkout (POST):<br>
-URL: http://localhost:8088/api/V1/pedidos/crear <br>
-Body:
-```json
-    {
-        "usuarioUsername": "seba_test",
-        "items": [
-            {
-                "productoId": 1,
-                "nombreProducto": "Vinilo Edición Plata",
-                "cantidad": 1,
-                "precioUnitario": 25000.0
-            }
-        ]
-    }
-```
-Nota: Este endpoint orquesta todo: Valida Inventario, Cobra con Pagos y Guarda la orden.
-
----
-
-<h1 align="center">Media</h1>
-
-### Subir Canción (POST):<br>
-URL: http://localhost:8089/api/V1/media/subir <br>
-Body (Form-data, no JSON):<br>
-- Key: `titulo`, Value: `Mi Canción`<br>
-- Key: `idAlbum`, Value: `01`<br>
-- Key: `file`, Value: (Seleccionar archivo .mp3)<br>
-
-### Reproducir Canción (GET):<br>
-URL: http://localhost:8089/api/V1/media/reproducir/1 <br>
-Nota: Abrir esta URL en el navegador reproduce el audio directamente.
-
-
----
-# COMO CONECTAR HIBERNATE A XAMPP:
-
-Esta guía detalla cómo establecer una conexión entre una aplicación Java con **Hibernate** y el servidor local **XAMPP**.
+<div align="center">
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/Sebastia1111">
+<img src="https://github.com/Sebastia1111.png" width="100" style="border-radius:50%"><br>
+<strong>Sebastian Orellana</strong><br>
+</a>
+</td>
+<td align="center">
+<a href="https://github.com/Joaquinstrap">
+<img src="https://github.com/Joaquinstrap.png" width="100" style="border-radius:50%"><br>
+<strong>Joaquin Correa</strong><br>
+</a>
+</td>
+<td align="center">
+<a href="https://github.com/nicchavez-duocuc">
+<img src="https://github.com/nicchavez-duocuc.png" width="100" style="border-radius:50%"><br>
+<strong>Nicolas Chavez</strong><br>
+</a>
+</td>
+</tr>
+</table>
+</div>
 
 ---
 
-## 📋 Requisitos Previos
+## 📄 Licencia
 
-1.  **XAMPP** instalado y ejecutándose.
-2.  **MySQL/MariaDB** activo en Laragon (botón "Start All").
-3.  **HeidiSQL** (incluido en Laragon) para gestionar la base de datos.
+Este proyecto fue desarrollado con fines **educativos** como parte de la asignatura de Fullstack en DuocUC.
 
----
+<div align="center">
 
-## 🛠️ Paso 1: Configurar la Base de Datos
+**Hecho con ❤️ para DuocUC**
 
-Antes de ejecutar tu código Java, debes crear el esquema manualmente:
-
-1. Abre **Laragon** y pulsa en **Database**.
-2. En **HeidiSQL**, haz clic derecho sobre tu sesión -> **Crear nuevo** -> **Base de datos**.
-3. Dale un nombre (ej. `mi_proyecto_db`).
-
-> [!IMPORTANT]
-> Hibernate crea las tablas automáticamente, pero **no** puede crear la base de datos por ti.
-
----
-
-## 📦 Paso 2: Dependencias (Maven)
-
-Asegúrate de tener el driver de MySQL y el núcleo de Hibernate en tu `pom.xml`:
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>6.4.4.Final</version>
-    </dependency>
-
-    <dependency>
-        <groupId>com.mysql</groupId>
-        <artifactId>mysql-connector-j</artifactId>
-        <version>8.3.0</version>
-    </dependency>
-</dependencies>
-```
-
-## Paso 3: Archivo de Configuración (hibernate.cfg.xml)
-
-Crea este archivo en la carpeta src/main/resources. Aquí definimos las credenciales por defecto de Laragon.
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "[http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd](http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd)">
-
-<hibernate-configuration>
-    <session-factory>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/mi_proyecto_db</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password"></property> <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
-        <property name="hbm2ddl.auto">update</property>
-
-        </session-factory>
-</hibernate-configuration>
-```
-
-## Paso 4: Implementación en Java
-
-Para interactuar con la base de datos, seguimos este flujo básico de transacciones:
-```java
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-public class Main {
-    public static void main(String[] args) {
-        // Crear la fábrica de sesiones
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(TuClase.class)
-                .buildSessionFactory();
-
-        // Crear sesión e iniciar transacción
-        try (Session session = factory.openSession()) {
-            session.beginTransaction();
-
-            // Lógica de base de datos aquí...
-            
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
-        }
-    }
-}
-```
-<img width="1525" height="871" alt="image" src="https://github.com/user-attachments/assets/0a1bbc85-38ff-47ce-bfc5-80cc3656d949" />
+<p>
+<img src="https://img.shields.io/badge/FULLSTACK-2026-FFC20E?style=for-the-badge">
+</p>
