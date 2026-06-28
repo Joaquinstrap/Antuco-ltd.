@@ -14,7 +14,7 @@
 
 ---
 
-## 📖 Descripción del Proyecto
+## Descripción del Proyecto
 
 [**Click Aquí para Obtener la Configuración!**](https://start.spring.io/#!type=maven-project&language=java&platformVersion=4.0.7&packaging=jar&configurationFileFormat=properties&jvmVersion=21&groupId=com.example.antuco&artifactId=&packageName=com.example.antuco.&dependencies=web,cloud-eureka,data-jpa,validation,flyway,mysql,mariadb,lombok)
 
@@ -24,7 +24,7 @@ El proyecto está construido bajo una **arquitectura de microservicios**, garant
 
 ---
 
-## 🏗️ Arquitectura y Microservicios
+## Arquitectura y Microservicios
 
 El sistema está compuesto por **11 servicios en total** (1 Servidor de Descubrimiento + 10 Microservicios de Negocio). Todos los microservicios se registran en **Eureka** para el balanceo de carga y descubrimiento dinámico.
 
@@ -46,7 +46,7 @@ El sistema está compuesto por **11 servicios en total** (1 Servidor de Descubri
 
 ---
 
-## 🔗 Lógica de Dependencias y Comunicación
+## Lógica de Dependencias y Comunicación
 
 La comunicación entre microservicios se realiza de forma asíncrona y síncrona utilizando `WebClient` a través de Eureka. La arquitectura se divide en tres capas lógicas:
 
@@ -72,7 +72,7 @@ El flujo de compra sigue un patrón de orquestación:
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 - **Lenguaje:** Java 21
 - **Framework:** Spring Boot 4.0.7
@@ -86,7 +86,7 @@ El flujo de compra sigue un patrón de orquestación:
 
 ---
 
-## ⚙️ Configuración y Ejecución Local
+## Configuración y Ejecución Local
 
 ### Requisitos Previos
 - JDK 21 o superior instalado.
